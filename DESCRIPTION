@@ -1,9 +1,11 @@
 Package: paquetedepruebas2
-Title: What the Package Does (One Line, Title Case)
+Title: Analiza Datos
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Juan", "Martín", , "mecomolosmocos@hotnomails.com", role = c("aut", "cre"))
+Description: El paquete sirve para analizar datos de un archivo, contiene dos funciones: 
+    resumen_numerico, que te devuelve el maximo,minimo,desvio standar,etc; 
+    y frecuencia_palabra que cunta la frecuencia de las palabras en un archivo.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
