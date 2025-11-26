@@ -6,7 +6,7 @@ donde se pueda ver si hay relacion entre dos variables comtinuas
 ## Usage
 
 ``` r
-grafico_relacion(datos, ejex, ejey, titulo)
+grafico_relacion(datos, x, y, titulo)
 ```
 
 ## Arguments
@@ -14,10 +14,6 @@ grafico_relacion(datos, ejex, ejey, titulo)
 - datos:
 
   Dataset con la informacion del grafico que se quiere crear
-
-- titulo:
-
-  titulo del grafico de dispercion
 
 - x:
 
@@ -27,6 +23,10 @@ grafico_relacion(datos, ejex, ejey, titulo)
 
   variable que ira en el eje y
 
+- titulo:
+
+  titulo del grafico de dispercion
+
 ## Value
 
 Devuelve un grafico de dispercion en donde se podra ver si hay relacion
@@ -35,9 +35,700 @@ entre las variables
 ## Examples
 
 ``` r
-grafico_relacion(pinguinos, alto_pico_mm, largo_aleta_mm, "Relacion entre el pico y la aleta")
-#> Error in ggplot2::geom_point(): Problem while computing aesthetics.
-#> ℹ Error occurred in the 1st layer.
-#> Caused by error:
-#> ! object 'alto_pico_mm' not found
+pinguinos
+#>     especie      isla largo_pico_mm alto_pico_mm largo_aleta_mm masa_corporal_g
+#> 1    Adelia Torgersen          39.1         18.7            181            3750
+#> 2    Adelia Torgersen          39.5         17.4            186            3800
+#> 3    Adelia Torgersen          40.3         18.0            195            3250
+#> 4    Adelia Torgersen            NA           NA             NA              NA
+#> 5    Adelia Torgersen          36.7         19.3            193            3450
+#> 6    Adelia Torgersen          39.3         20.6            190            3650
+#> 7    Adelia Torgersen          38.9         17.8            181            3625
+#> 8    Adelia Torgersen          39.2         19.6            195            4675
+#> 9    Adelia Torgersen          34.1         18.1            193            3475
+#> 10   Adelia Torgersen          42.0         20.2            190            4250
+#> 11   Adelia Torgersen          37.8         17.1            186            3300
+#> 12   Adelia Torgersen          37.8         17.3            180            3700
+#> 13   Adelia Torgersen          41.1         17.6            182            3200
+#> 14   Adelia Torgersen          38.6         21.2            191            3800
+#> 15   Adelia Torgersen          34.6         21.1            198            4400
+#> 16   Adelia Torgersen          36.6         17.8            185            3700
+#> 17   Adelia Torgersen          38.7         19.0            195            3450
+#> 18   Adelia Torgersen          42.5         20.7            197            4500
+#> 19   Adelia Torgersen          34.4         18.4            184            3325
+#> 20   Adelia Torgersen          46.0         21.5            194            4200
+#> 21   Adelia    Biscoe          37.8         18.3            174            3400
+#> 22   Adelia    Biscoe          37.7         18.7            180            3600
+#> 23   Adelia    Biscoe          35.9         19.2            189            3800
+#> 24   Adelia    Biscoe          38.2         18.1            185            3950
+#> 25   Adelia    Biscoe          38.8         17.2            180            3800
+#> 26   Adelia    Biscoe          35.3         18.9            187            3800
+#> 27   Adelia    Biscoe          40.6         18.6            183            3550
+#> 28   Adelia    Biscoe          40.5         17.9            187            3200
+#> 29   Adelia    Biscoe          37.9         18.6            172            3150
+#> 30   Adelia    Biscoe          40.5         18.9            180            3950
+#> 31   Adelia     Dream          39.5         16.7            178            3250
+#> 32   Adelia     Dream          37.2         18.1            178            3900
+#> 33   Adelia     Dream          39.5         17.8            188            3300
+#> 34   Adelia     Dream          40.9         18.9            184            3900
+#> 35   Adelia     Dream          36.4         17.0            195            3325
+#> 36   Adelia     Dream          39.2         21.1            196            4150
+#> 37   Adelia     Dream          38.8         20.0            190            3950
+#> 38   Adelia     Dream          42.2         18.5            180            3550
+#> 39   Adelia     Dream          37.6         19.3            181            3300
+#> 40   Adelia     Dream          39.8         19.1            184            4650
+#> 41   Adelia     Dream          36.5         18.0            182            3150
+#> 42   Adelia     Dream          40.8         18.4            195            3900
+#> 43   Adelia     Dream          36.0         18.5            186            3100
+#> 44   Adelia     Dream          44.1         19.7            196            4400
+#> 45   Adelia     Dream          37.0         16.9            185            3000
+#> 46   Adelia     Dream          39.6         18.8            190            4600
+#> 47   Adelia     Dream          41.1         19.0            182            3425
+#> 48   Adelia     Dream          37.5         18.9            179            2975
+#> 49   Adelia     Dream          36.0         17.9            190            3450
+#> 50   Adelia     Dream          42.3         21.2            191            4150
+#> 51   Adelia    Biscoe          39.6         17.7            186            3500
+#> 52   Adelia    Biscoe          40.1         18.9            188            4300
+#> 53   Adelia    Biscoe          35.0         17.9            190            3450
+#> 54   Adelia    Biscoe          42.0         19.5            200            4050
+#> 55   Adelia    Biscoe          34.5         18.1            187            2900
+#> 56   Adelia    Biscoe          41.4         18.6            191            3700
+#> 57   Adelia    Biscoe          39.0         17.5            186            3550
+#> 58   Adelia    Biscoe          40.6         18.8            193            3800
+#> 59   Adelia    Biscoe          36.5         16.6            181            2850
+#> 60   Adelia    Biscoe          37.6         19.1            194            3750
+#> 61   Adelia    Biscoe          35.7         16.9            185            3150
+#> 62   Adelia    Biscoe          41.3         21.1            195            4400
+#> 63   Adelia    Biscoe          37.6         17.0            185            3600
+#> 64   Adelia    Biscoe          41.1         18.2            192            4050
+#> 65   Adelia    Biscoe          36.4         17.1            184            2850
+#> 66   Adelia    Biscoe          41.6         18.0            192            3950
+#> 67   Adelia    Biscoe          35.5         16.2            195            3350
+#> 68   Adelia    Biscoe          41.1         19.1            188            4100
+#> 69   Adelia Torgersen          35.9         16.6            190            3050
+#> 70   Adelia Torgersen          41.8         19.4            198            4450
+#> 71   Adelia Torgersen          33.5         19.0            190            3600
+#> 72   Adelia Torgersen          39.7         18.4            190            3900
+#> 73   Adelia Torgersen          39.6         17.2            196            3550
+#> 74   Adelia Torgersen          45.8         18.9            197            4150
+#> 75   Adelia Torgersen          35.5         17.5            190            3700
+#> 76   Adelia Torgersen          42.8         18.5            195            4250
+#> 77   Adelia Torgersen          40.9         16.8            191            3700
+#> 78   Adelia Torgersen          37.2         19.4            184            3900
+#> 79   Adelia Torgersen          36.2         16.1            187            3550
+#> 80   Adelia Torgersen          42.1         19.1            195            4000
+#> 81   Adelia Torgersen          34.6         17.2            189            3200
+#> 82   Adelia Torgersen          42.9         17.6            196            4700
+#> 83   Adelia Torgersen          36.7         18.8            187            3800
+#> 84   Adelia Torgersen          35.1         19.4            193            4200
+#> 85   Adelia     Dream          37.3         17.8            191            3350
+#> 86   Adelia     Dream          41.3         20.3            194            3550
+#> 87   Adelia     Dream          36.3         19.5            190            3800
+#> 88   Adelia     Dream          36.9         18.6            189            3500
+#> 89   Adelia     Dream          38.3         19.2            189            3950
+#> 90   Adelia     Dream          38.9         18.8            190            3600
+#> 91   Adelia     Dream          35.7         18.0            202            3550
+#> 92   Adelia     Dream          41.1         18.1            205            4300
+#> 93   Adelia     Dream          34.0         17.1            185            3400
+#> 94   Adelia     Dream          39.6         18.1            186            4450
+#> 95   Adelia     Dream          36.2         17.3            187            3300
+#> 96   Adelia     Dream          40.8         18.9            208            4300
+#> 97   Adelia     Dream          38.1         18.6            190            3700
+#> 98   Adelia     Dream          40.3         18.5            196            4350
+#> 99   Adelia     Dream          33.1         16.1            178            2900
+#> 100  Adelia     Dream          43.2         18.5            192            4100
+#> 101  Adelia    Biscoe          35.0         17.9            192            3725
+#> 102  Adelia    Biscoe          41.0         20.0            203            4725
+#> 103  Adelia    Biscoe          37.7         16.0            183            3075
+#> 104  Adelia    Biscoe          37.8         20.0            190            4250
+#> 105  Adelia    Biscoe          37.9         18.6            193            2925
+#> 106  Adelia    Biscoe          39.7         18.9            184            3550
+#> 107  Adelia    Biscoe          38.6         17.2            199            3750
+#> 108  Adelia    Biscoe          38.2         20.0            190            3900
+#> 109  Adelia    Biscoe          38.1         17.0            181            3175
+#> 110  Adelia    Biscoe          43.2         19.0            197            4775
+#> 111  Adelia    Biscoe          38.1         16.5            198            3825
+#> 112  Adelia    Biscoe          45.6         20.3            191            4600
+#> 113  Adelia    Biscoe          39.7         17.7            193            3200
+#> 114  Adelia    Biscoe          42.2         19.5            197            4275
+#> 115  Adelia    Biscoe          39.6         20.7            191            3900
+#> 116  Adelia    Biscoe          42.7         18.3            196            4075
+#> 117  Adelia Torgersen          38.6         17.0            188            2900
+#> 118  Adelia Torgersen          37.3         20.5            199            3775
+#> 119  Adelia Torgersen          35.7         17.0            189            3350
+#> 120  Adelia Torgersen          41.1         18.6            189            3325
+#> 121  Adelia Torgersen          36.2         17.2            187            3150
+#> 122  Adelia Torgersen          37.7         19.8            198            3500
+#> 123  Adelia Torgersen          40.2         17.0            176            3450
+#> 124  Adelia Torgersen          41.4         18.5            202            3875
+#> 125  Adelia Torgersen          35.2         15.9            186            3050
+#> 126  Adelia Torgersen          40.6         19.0            199            4000
+#> 127  Adelia Torgersen          38.8         17.6            191            3275
+#> 128  Adelia Torgersen          41.5         18.3            195            4300
+#> 129  Adelia Torgersen          39.0         17.1            191            3050
+#> 130  Adelia Torgersen          44.1         18.0            210            4000
+#> 131  Adelia Torgersen          38.5         17.9            190            3325
+#> 132  Adelia Torgersen          43.1         19.2            197            3500
+#> 133  Adelia     Dream          36.8         18.5            193            3500
+#> 134  Adelia     Dream          37.5         18.5            199            4475
+#> 135  Adelia     Dream          38.1         17.6            187            3425
+#> 136  Adelia     Dream          41.1         17.5            190            3900
+#> 137  Adelia     Dream          35.6         17.5            191            3175
+#> 138  Adelia     Dream          40.2         20.1            200            3975
+#> 139  Adelia     Dream          37.0         16.5            185            3400
+#> 140  Adelia     Dream          39.7         17.9            193            4250
+#> 141  Adelia     Dream          40.2         17.1            193            3400
+#> 142  Adelia     Dream          40.6         17.2            187            3475
+#> 143  Adelia     Dream          32.1         15.5            188            3050
+#> 144  Adelia     Dream          40.7         17.0            190            3725
+#> 145  Adelia     Dream          37.3         16.8            192            3000
+#> 146  Adelia     Dream          39.0         18.7            185            3650
+#> 147  Adelia     Dream          39.2         18.6            190            4250
+#> 148  Adelia     Dream          36.6         18.4            184            3475
+#> 149  Adelia     Dream          36.0         17.8            195            3450
+#> 150  Adelia     Dream          37.8         18.1            193            3750
+#> 151  Adelia     Dream          36.0         17.1            187            3700
+#> 152  Adelia     Dream          41.5         18.5            201            4000
+#> 153   Papúa    Biscoe          46.1         13.2            211            4500
+#> 154   Papúa    Biscoe          50.0         16.3            230            5700
+#> 155   Papúa    Biscoe          48.7         14.1            210            4450
+#> 156   Papúa    Biscoe          50.0         15.2            218            5700
+#> 157   Papúa    Biscoe          47.6         14.5            215            5400
+#> 158   Papúa    Biscoe          46.5         13.5            210            4550
+#> 159   Papúa    Biscoe          45.4         14.6            211            4800
+#> 160   Papúa    Biscoe          46.7         15.3            219            5200
+#> 161   Papúa    Biscoe          43.3         13.4            209            4400
+#> 162   Papúa    Biscoe          46.8         15.4            215            5150
+#> 163   Papúa    Biscoe          40.9         13.7            214            4650
+#> 164   Papúa    Biscoe          49.0         16.1            216            5550
+#> 165   Papúa    Biscoe          45.5         13.7            214            4650
+#> 166   Papúa    Biscoe          48.4         14.6            213            5850
+#> 167   Papúa    Biscoe          45.8         14.6            210            4200
+#> 168   Papúa    Biscoe          49.3         15.7            217            5850
+#> 169   Papúa    Biscoe          42.0         13.5            210            4150
+#> 170   Papúa    Biscoe          49.2         15.2            221            6300
+#> 171   Papúa    Biscoe          46.2         14.5            209            4800
+#> 172   Papúa    Biscoe          48.7         15.1            222            5350
+#> 173   Papúa    Biscoe          50.2         14.3            218            5700
+#> 174   Papúa    Biscoe          45.1         14.5            215            5000
+#> 175   Papúa    Biscoe          46.5         14.5            213            4400
+#> 176   Papúa    Biscoe          46.3         15.8            215            5050
+#> 177   Papúa    Biscoe          42.9         13.1            215            5000
+#> 178   Papúa    Biscoe          46.1         15.1            215            5100
+#> 179   Papúa    Biscoe          44.5         14.3            216            4100
+#> 180   Papúa    Biscoe          47.8         15.0            215            5650
+#> 181   Papúa    Biscoe          48.2         14.3            210            4600
+#> 182   Papúa    Biscoe          50.0         15.3            220            5550
+#> 183   Papúa    Biscoe          47.3         15.3            222            5250
+#> 184   Papúa    Biscoe          42.8         14.2            209            4700
+#> 185   Papúa    Biscoe          45.1         14.5            207            5050
+#> 186   Papúa    Biscoe          59.6         17.0            230            6050
+#> 187   Papúa    Biscoe          49.1         14.8            220            5150
+#> 188   Papúa    Biscoe          48.4         16.3            220            5400
+#> 189   Papúa    Biscoe          42.6         13.7            213            4950
+#> 190   Papúa    Biscoe          44.4         17.3            219            5250
+#> 191   Papúa    Biscoe          44.0         13.6            208            4350
+#> 192   Papúa    Biscoe          48.7         15.7            208            5350
+#> 193   Papúa    Biscoe          42.7         13.7            208            3950
+#> 194   Papúa    Biscoe          49.6         16.0            225            5700
+#> 195   Papúa    Biscoe          45.3         13.7            210            4300
+#> 196   Papúa    Biscoe          49.6         15.0            216            4750
+#> 197   Papúa    Biscoe          50.5         15.9            222            5550
+#> 198   Papúa    Biscoe          43.6         13.9            217            4900
+#> 199   Papúa    Biscoe          45.5         13.9            210            4200
+#> 200   Papúa    Biscoe          50.5         15.9            225            5400
+#> 201   Papúa    Biscoe          44.9         13.3            213            5100
+#> 202   Papúa    Biscoe          45.2         15.8            215            5300
+#> 203   Papúa    Biscoe          46.6         14.2            210            4850
+#> 204   Papúa    Biscoe          48.5         14.1            220            5300
+#> 205   Papúa    Biscoe          45.1         14.4            210            4400
+#> 206   Papúa    Biscoe          50.1         15.0            225            5000
+#> 207   Papúa    Biscoe          46.5         14.4            217            4900
+#> 208   Papúa    Biscoe          45.0         15.4            220            5050
+#> 209   Papúa    Biscoe          43.8         13.9            208            4300
+#> 210   Papúa    Biscoe          45.5         15.0            220            5000
+#> 211   Papúa    Biscoe          43.2         14.5            208            4450
+#> 212   Papúa    Biscoe          50.4         15.3            224            5550
+#> 213   Papúa    Biscoe          45.3         13.8            208            4200
+#> 214   Papúa    Biscoe          46.2         14.9            221            5300
+#> 215   Papúa    Biscoe          45.7         13.9            214            4400
+#> 216   Papúa    Biscoe          54.3         15.7            231            5650
+#> 217   Papúa    Biscoe          45.8         14.2            219            4700
+#> 218   Papúa    Biscoe          49.8         16.8            230            5700
+#> 219   Papúa    Biscoe          46.2         14.4            214            4650
+#> 220   Papúa    Biscoe          49.5         16.2            229            5800
+#> 221   Papúa    Biscoe          43.5         14.2            220            4700
+#> 222   Papúa    Biscoe          50.7         15.0            223            5550
+#> 223   Papúa    Biscoe          47.7         15.0            216            4750
+#> 224   Papúa    Biscoe          46.4         15.6            221            5000
+#> 225   Papúa    Biscoe          48.2         15.6            221            5100
+#> 226   Papúa    Biscoe          46.5         14.8            217            5200
+#> 227   Papúa    Biscoe          46.4         15.0            216            4700
+#> 228   Papúa    Biscoe          48.6         16.0            230            5800
+#> 229   Papúa    Biscoe          47.5         14.2            209            4600
+#> 230   Papúa    Biscoe          51.1         16.3            220            6000
+#> 231   Papúa    Biscoe          45.2         13.8            215            4750
+#> 232   Papúa    Biscoe          45.2         16.4            223            5950
+#> 233   Papúa    Biscoe          49.1         14.5            212            4625
+#> 234   Papúa    Biscoe          52.5         15.6            221            5450
+#> 235   Papúa    Biscoe          47.4         14.6            212            4725
+#> 236   Papúa    Biscoe          50.0         15.9            224            5350
+#> 237   Papúa    Biscoe          44.9         13.8            212            4750
+#> 238   Papúa    Biscoe          50.8         17.3            228            5600
+#> 239   Papúa    Biscoe          43.4         14.4            218            4600
+#> 240   Papúa    Biscoe          51.3         14.2            218            5300
+#> 241   Papúa    Biscoe          47.5         14.0            212            4875
+#> 242   Papúa    Biscoe          52.1         17.0            230            5550
+#> 243   Papúa    Biscoe          47.5         15.0            218            4950
+#> 244   Papúa    Biscoe          52.2         17.1            228            5400
+#> 245   Papúa    Biscoe          45.5         14.5            212            4750
+#> 246   Papúa    Biscoe          49.5         16.1            224            5650
+#> 247   Papúa    Biscoe          44.5         14.7            214            4850
+#> 248   Papúa    Biscoe          50.8         15.7            226            5200
+#> 249   Papúa    Biscoe          49.4         15.8            216            4925
+#> 250   Papúa    Biscoe          46.9         14.6            222            4875
+#> 251   Papúa    Biscoe          48.4         14.4            203            4625
+#> 252   Papúa    Biscoe          51.1         16.5            225            5250
+#> 253   Papúa    Biscoe          48.5         15.0            219            4850
+#> 254   Papúa    Biscoe          55.9         17.0            228            5600
+#> 255   Papúa    Biscoe          47.2         15.5            215            4975
+#> 256   Papúa    Biscoe          49.1         15.0            228            5500
+#> 257   Papúa    Biscoe          47.3         13.8            216            4725
+#> 258   Papúa    Biscoe          46.8         16.1            215            5500
+#> 259   Papúa    Biscoe          41.7         14.7            210            4700
+#> 260   Papúa    Biscoe          53.4         15.8            219            5500
+#> 261   Papúa    Biscoe          43.3         14.0            208            4575
+#> 262   Papúa    Biscoe          48.1         15.1            209            5500
+#> 263   Papúa    Biscoe          50.5         15.2            216            5000
+#> 264   Papúa    Biscoe          49.8         15.9            229            5950
+#> 265   Papúa    Biscoe          43.5         15.2            213            4650
+#> 266   Papúa    Biscoe          51.5         16.3            230            5500
+#> 267   Papúa    Biscoe          46.2         14.1            217            4375
+#> 268   Papúa    Biscoe          55.1         16.0            230            5850
+#> 269   Papúa    Biscoe          44.5         15.7            217            4875
+#> 270   Papúa    Biscoe          48.8         16.2            222            6000
+#> 271   Papúa    Biscoe          47.2         13.7            214            4925
+#> 272   Papúa    Biscoe            NA           NA             NA              NA
+#> 273   Papúa    Biscoe          46.8         14.3            215            4850
+#> 274   Papúa    Biscoe          50.4         15.7            222            5750
+#> 275   Papúa    Biscoe          45.2         14.8            212            5200
+#> 276   Papúa    Biscoe          49.9         16.1            213            5400
+#> 277 Barbijo     Dream          46.5         17.9            192            3500
+#> 278 Barbijo     Dream          50.0         19.5            196            3900
+#> 279 Barbijo     Dream          51.3         19.2            193            3650
+#> 280 Barbijo     Dream          45.4         18.7            188            3525
+#> 281 Barbijo     Dream          52.7         19.8            197            3725
+#> 282 Barbijo     Dream          45.2         17.8            198            3950
+#> 283 Barbijo     Dream          46.1         18.2            178            3250
+#> 284 Barbijo     Dream          51.3         18.2            197            3750
+#> 285 Barbijo     Dream          46.0         18.9            195            4150
+#> 286 Barbijo     Dream          51.3         19.9            198            3700
+#> 287 Barbijo     Dream          46.6         17.8            193            3800
+#> 288 Barbijo     Dream          51.7         20.3            194            3775
+#> 289 Barbijo     Dream          47.0         17.3            185            3700
+#> 290 Barbijo     Dream          52.0         18.1            201            4050
+#> 291 Barbijo     Dream          45.9         17.1            190            3575
+#> 292 Barbijo     Dream          50.5         19.6            201            4050
+#> 293 Barbijo     Dream          50.3         20.0            197            3300
+#> 294 Barbijo     Dream          58.0         17.8            181            3700
+#> 295 Barbijo     Dream          46.4         18.6            190            3450
+#> 296 Barbijo     Dream          49.2         18.2            195            4400
+#> 297 Barbijo     Dream          42.4         17.3            181            3600
+#> 298 Barbijo     Dream          48.5         17.5            191            3400
+#> 299 Barbijo     Dream          43.2         16.6            187            2900
+#> 300 Barbijo     Dream          50.6         19.4            193            3800
+#> 301 Barbijo     Dream          46.7         17.9            195            3300
+#> 302 Barbijo     Dream          52.0         19.0            197            4150
+#> 303 Barbijo     Dream          50.5         18.4            200            3400
+#> 304 Barbijo     Dream          49.5         19.0            200            3800
+#> 305 Barbijo     Dream          46.4         17.8            191            3700
+#> 306 Barbijo     Dream          52.8         20.0            205            4550
+#> 307 Barbijo     Dream          40.9         16.6            187            3200
+#> 308 Barbijo     Dream          54.2         20.8            201            4300
+#> 309 Barbijo     Dream          42.5         16.7            187            3350
+#> 310 Barbijo     Dream          51.0         18.8            203            4100
+#> 311 Barbijo     Dream          49.7         18.6            195            3600
+#> 312 Barbijo     Dream          47.5         16.8            199            3900
+#> 313 Barbijo     Dream          47.6         18.3            195            3850
+#> 314 Barbijo     Dream          52.0         20.7            210            4800
+#> 315 Barbijo     Dream          46.9         16.6            192            2700
+#> 316 Barbijo     Dream          53.5         19.9            205            4500
+#> 317 Barbijo     Dream          49.0         19.5            210            3950
+#> 318 Barbijo     Dream          46.2         17.5            187            3650
+#> 319 Barbijo     Dream          50.9         19.1            196            3550
+#> 320 Barbijo     Dream          45.5         17.0            196            3500
+#> 321 Barbijo     Dream          50.9         17.9            196            3675
+#> 322 Barbijo     Dream          50.8         18.5            201            4450
+#> 323 Barbijo     Dream          50.1         17.9            190            3400
+#> 324 Barbijo     Dream          49.0         19.6            212            4300
+#> 325 Barbijo     Dream          51.5         18.7            187            3250
+#> 326 Barbijo     Dream          49.8         17.3            198            3675
+#> 327 Barbijo     Dream          48.1         16.4            199            3325
+#> 328 Barbijo     Dream          51.4         19.0            201            3950
+#> 329 Barbijo     Dream          45.7         17.3            193            3600
+#> 330 Barbijo     Dream          50.7         19.7            203            4050
+#> 331 Barbijo     Dream          42.5         17.3            187            3350
+#> 332 Barbijo     Dream          52.2         18.8            197            3450
+#> 333 Barbijo     Dream          45.2         16.6            191            3250
+#> 334 Barbijo     Dream          49.3         19.9            203            4050
+#> 335 Barbijo     Dream          50.2         18.8            202            3800
+#> 336 Barbijo     Dream          45.6         19.4            194            3525
+#> 337 Barbijo     Dream          51.9         19.5            206            3950
+#> 338 Barbijo     Dream          46.8         16.5            189            3650
+#> 339 Barbijo     Dream          45.7         17.0            195            3650
+#> 340 Barbijo     Dream          55.8         19.8            207            4000
+#> 341 Barbijo     Dream          43.5         18.1            202            3400
+#> 342 Barbijo     Dream          49.6         18.2            193            3775
+#> 343 Barbijo     Dream          50.8         19.0            210            4100
+#> 344 Barbijo     Dream          50.2         18.7            198            3775
+#>       sexo anio
+#> 1    macho 2007
+#> 2   hembra 2007
+#> 3   hembra 2007
+#> 4     <NA> 2007
+#> 5   hembra 2007
+#> 6    macho 2007
+#> 7   hembra 2007
+#> 8    macho 2007
+#> 9     <NA> 2007
+#> 10    <NA> 2007
+#> 11    <NA> 2007
+#> 12    <NA> 2007
+#> 13  hembra 2007
+#> 14   macho 2007
+#> 15   macho 2007
+#> 16  hembra 2007
+#> 17  hembra 2007
+#> 18   macho 2007
+#> 19  hembra 2007
+#> 20   macho 2007
+#> 21  hembra 2007
+#> 22   macho 2007
+#> 23  hembra 2007
+#> 24   macho 2007
+#> 25   macho 2007
+#> 26  hembra 2007
+#> 27   macho 2007
+#> 28  hembra 2007
+#> 29  hembra 2007
+#> 30   macho 2007
+#> 31  hembra 2007
+#> 32   macho 2007
+#> 33  hembra 2007
+#> 34   macho 2007
+#> 35  hembra 2007
+#> 36   macho 2007
+#> 37   macho 2007
+#> 38  hembra 2007
+#> 39  hembra 2007
+#> 40   macho 2007
+#> 41  hembra 2007
+#> 42   macho 2007
+#> 43  hembra 2007
+#> 44   macho 2007
+#> 45  hembra 2007
+#> 46   macho 2007
+#> 47   macho 2007
+#> 48    <NA> 2007
+#> 49  hembra 2007
+#> 50   macho 2007
+#> 51  hembra 2008
+#> 52   macho 2008
+#> 53  hembra 2008
+#> 54   macho 2008
+#> 55  hembra 2008
+#> 56   macho 2008
+#> 57  hembra 2008
+#> 58   macho 2008
+#> 59  hembra 2008
+#> 60   macho 2008
+#> 61  hembra 2008
+#> 62   macho 2008
+#> 63  hembra 2008
+#> 64   macho 2008
+#> 65  hembra 2008
+#> 66   macho 2008
+#> 67  hembra 2008
+#> 68   macho 2008
+#> 69  hembra 2008
+#> 70   macho 2008
+#> 71  hembra 2008
+#> 72   macho 2008
+#> 73  hembra 2008
+#> 74   macho 2008
+#> 75  hembra 2008
+#> 76   macho 2008
+#> 77  hembra 2008
+#> 78   macho 2008
+#> 79  hembra 2008
+#> 80   macho 2008
+#> 81  hembra 2008
+#> 82   macho 2008
+#> 83  hembra 2008
+#> 84   macho 2008
+#> 85  hembra 2008
+#> 86   macho 2008
+#> 87   macho 2008
+#> 88  hembra 2008
+#> 89   macho 2008
+#> 90  hembra 2008
+#> 91  hembra 2008
+#> 92   macho 2008
+#> 93  hembra 2008
+#> 94   macho 2008
+#> 95  hembra 2008
+#> 96   macho 2008
+#> 97  hembra 2008
+#> 98   macho 2008
+#> 99  hembra 2008
+#> 100  macho 2008
+#> 101 hembra 2009
+#> 102  macho 2009
+#> 103 hembra 2009
+#> 104  macho 2009
+#> 105 hembra 2009
+#> 106  macho 2009
+#> 107 hembra 2009
+#> 108  macho 2009
+#> 109 hembra 2009
+#> 110  macho 2009
+#> 111 hembra 2009
+#> 112  macho 2009
+#> 113 hembra 2009
+#> 114  macho 2009
+#> 115 hembra 2009
+#> 116  macho 2009
+#> 117 hembra 2009
+#> 118  macho 2009
+#> 119 hembra 2009
+#> 120  macho 2009
+#> 121 hembra 2009
+#> 122  macho 2009
+#> 123 hembra 2009
+#> 124  macho 2009
+#> 125 hembra 2009
+#> 126  macho 2009
+#> 127 hembra 2009
+#> 128  macho 2009
+#> 129 hembra 2009
+#> 130  macho 2009
+#> 131 hembra 2009
+#> 132  macho 2009
+#> 133 hembra 2009
+#> 134  macho 2009
+#> 135 hembra 2009
+#> 136  macho 2009
+#> 137 hembra 2009
+#> 138  macho 2009
+#> 139 hembra 2009
+#> 140  macho 2009
+#> 141 hembra 2009
+#> 142  macho 2009
+#> 143 hembra 2009
+#> 144  macho 2009
+#> 145 hembra 2009
+#> 146  macho 2009
+#> 147  macho 2009
+#> 148 hembra 2009
+#> 149 hembra 2009
+#> 150  macho 2009
+#> 151 hembra 2009
+#> 152  macho 2009
+#> 153 hembra 2007
+#> 154  macho 2007
+#> 155 hembra 2007
+#> 156  macho 2007
+#> 157  macho 2007
+#> 158 hembra 2007
+#> 159 hembra 2007
+#> 160  macho 2007
+#> 161 hembra 2007
+#> 162  macho 2007
+#> 163 hembra 2007
+#> 164  macho 2007
+#> 165 hembra 2007
+#> 166  macho 2007
+#> 167 hembra 2007
+#> 168  macho 2007
+#> 169 hembra 2007
+#> 170  macho 2007
+#> 171 hembra 2007
+#> 172  macho 2007
+#> 173  macho 2007
+#> 174 hembra 2007
+#> 175 hembra 2007
+#> 176  macho 2007
+#> 177 hembra 2007
+#> 178  macho 2007
+#> 179   <NA> 2007
+#> 180  macho 2007
+#> 181 hembra 2007
+#> 182  macho 2007
+#> 183  macho 2007
+#> 184 hembra 2007
+#> 185 hembra 2007
+#> 186  macho 2007
+#> 187 hembra 2008
+#> 188  macho 2008
+#> 189 hembra 2008
+#> 190  macho 2008
+#> 191 hembra 2008
+#> 192  macho 2008
+#> 193 hembra 2008
+#> 194  macho 2008
+#> 195 hembra 2008
+#> 196  macho 2008
+#> 197  macho 2008
+#> 198 hembra 2008
+#> 199 hembra 2008
+#> 200  macho 2008
+#> 201 hembra 2008
+#> 202  macho 2008
+#> 203 hembra 2008
+#> 204  macho 2008
+#> 205 hembra 2008
+#> 206  macho 2008
+#> 207 hembra 2008
+#> 208  macho 2008
+#> 209 hembra 2008
+#> 210  macho 2008
+#> 211 hembra 2008
+#> 212  macho 2008
+#> 213 hembra 2008
+#> 214  macho 2008
+#> 215 hembra 2008
+#> 216  macho 2008
+#> 217 hembra 2008
+#> 218  macho 2008
+#> 219   <NA> 2008
+#> 220  macho 2008
+#> 221 hembra 2008
+#> 222  macho 2008
+#> 223 hembra 2008
+#> 224  macho 2008
+#> 225  macho 2008
+#> 226 hembra 2008
+#> 227 hembra 2008
+#> 228  macho 2008
+#> 229 hembra 2008
+#> 230  macho 2008
+#> 231 hembra 2008
+#> 232  macho 2008
+#> 233 hembra 2009
+#> 234  macho 2009
+#> 235 hembra 2009
+#> 236  macho 2009
+#> 237 hembra 2009
+#> 238  macho 2009
+#> 239 hembra 2009
+#> 240  macho 2009
+#> 241 hembra 2009
+#> 242  macho 2009
+#> 243 hembra 2009
+#> 244  macho 2009
+#> 245 hembra 2009
+#> 246  macho 2009
+#> 247 hembra 2009
+#> 248  macho 2009
+#> 249  macho 2009
+#> 250 hembra 2009
+#> 251 hembra 2009
+#> 252  macho 2009
+#> 253 hembra 2009
+#> 254  macho 2009
+#> 255 hembra 2009
+#> 256  macho 2009
+#> 257   <NA> 2009
+#> 258  macho 2009
+#> 259 hembra 2009
+#> 260  macho 2009
+#> 261 hembra 2009
+#> 262  macho 2009
+#> 263 hembra 2009
+#> 264  macho 2009
+#> 265 hembra 2009
+#> 266  macho 2009
+#> 267 hembra 2009
+#> 268  macho 2009
+#> 269   <NA> 2009
+#> 270  macho 2009
+#> 271 hembra 2009
+#> 272   <NA> 2009
+#> 273 hembra 2009
+#> 274  macho 2009
+#> 275 hembra 2009
+#> 276  macho 2009
+#> 277 hembra 2007
+#> 278  macho 2007
+#> 279  macho 2007
+#> 280 hembra 2007
+#> 281  macho 2007
+#> 282 hembra 2007
+#> 283 hembra 2007
+#> 284  macho 2007
+#> 285 hembra 2007
+#> 286  macho 2007
+#> 287 hembra 2007
+#> 288  macho 2007
+#> 289 hembra 2007
+#> 290  macho 2007
+#> 291 hembra 2007
+#> 292  macho 2007
+#> 293  macho 2007
+#> 294 hembra 2007
+#> 295 hembra 2007
+#> 296  macho 2007
+#> 297 hembra 2007
+#> 298  macho 2007
+#> 299 hembra 2007
+#> 300  macho 2007
+#> 301 hembra 2007
+#> 302  macho 2007
+#> 303 hembra 2008
+#> 304  macho 2008
+#> 305 hembra 2008
+#> 306  macho 2008
+#> 307 hembra 2008
+#> 308  macho 2008
+#> 309 hembra 2008
+#> 310  macho 2008
+#> 311  macho 2008
+#> 312 hembra 2008
+#> 313 hembra 2008
+#> 314  macho 2008
+#> 315 hembra 2008
+#> 316  macho 2008
+#> 317  macho 2008
+#> 318 hembra 2008
+#> 319  macho 2008
+#> 320 hembra 2008
+#> 321 hembra 2009
+#> 322  macho 2009
+#> 323 hembra 2009
+#> 324  macho 2009
+#> 325  macho 2009
+#> 326 hembra 2009
+#> 327 hembra 2009
+#> 328  macho 2009
+#> 329 hembra 2009
+#> 330  macho 2009
+#> 331 hembra 2009
+#> 332  macho 2009
+#> 333 hembra 2009
+#> 334  macho 2009
+#> 335  macho 2009
+#> 336 hembra 2009
+#> 337  macho 2009
+#> 338 hembra 2009
+#> 339 hembra 2009
+#> 340  macho 2009
+#> 341 hembra 2009
+#> 342  macho 2009
+#> 343  macho 2009
+#> 344 hembra 2009
+grafico_relacion(pinguinos, "largo_pico_mm", "largo_aleta_mm", "Relacion entre el pico y la aleta")
+#> Warning: All aesthetics have length 1, but the data has 344 rows.
+#> ℹ Please consider using `annotate()` or provide this layer with data containing
+#>   a single row.
+
 ```

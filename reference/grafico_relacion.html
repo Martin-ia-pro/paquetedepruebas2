@@ -42,7 +42,7 @@ si hay relacion entre dos variables comtinuas</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">grafico_relacion</span><span class="op">(</span><span class="va">datos</span>, <span class="va">ejex</span>, <span class="va">ejey</span>, <span class="va">titulo</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">grafico_relacion</span><span class="op">(</span><span class="va">datos</span>, <span class="va">x</span>, <span class="va">y</span>, <span class="va">titulo</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -53,16 +53,16 @@ si hay relacion entre dos variables comtinuas</p>
 <dd><p>Dataset con la informacion del grafico que se quiere crear</p></dd>
 
 
-<dt id="arg-titulo">titulo<a class="anchor" aria-label="anchor" href="#arg-titulo"></a></dt>
-<dd><p>titulo del grafico de dispercion</p></dd>
-
-
 <dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>variable que ira en el eje x</p></dd>
 
 
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
 <dd><p>variable que ira en el eje y</p></dd>
+
+
+<dt id="arg-titulo">titulo<a class="anchor" aria-label="anchor" href="#arg-titulo"></a></dt>
+<dd><p>titulo del grafico de dispercion</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -72,11 +72,702 @@ si hay relacion entre dos variables comtinuas</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">grafico_relacion</span><span class="op">(</span><span class="va">pinguinos</span>, <span class="va">alto_pico_mm</span>, <span class="va">largo_aleta_mm</span>, <span class="st">"Relacion entre el pico y la aleta"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in ggplot2::geom_point():</span> Problem while computing aesthetics.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Error occurred in the 1st layer.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error:</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> object 'alto_pico_mm' not found</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">pinguinos</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     especie      isla largo_pico_mm alto_pico_mm largo_aleta_mm masa_corporal_g</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    Adelia Torgersen          39.1         18.7            181            3750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    Adelia Torgersen          39.5         17.4            186            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    Adelia Torgersen          40.3         18.0            195            3250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    Adelia Torgersen            NA           NA             NA              NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    Adelia Torgersen          36.7         19.3            193            3450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    Adelia Torgersen          39.3         20.6            190            3650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7    Adelia Torgersen          38.9         17.8            181            3625</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8    Adelia Torgersen          39.2         19.6            195            4675</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9    Adelia Torgersen          34.1         18.1            193            3475</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10   Adelia Torgersen          42.0         20.2            190            4250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11   Adelia Torgersen          37.8         17.1            186            3300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12   Adelia Torgersen          37.8         17.3            180            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13   Adelia Torgersen          41.1         17.6            182            3200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14   Adelia Torgersen          38.6         21.2            191            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15   Adelia Torgersen          34.6         21.1            198            4400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16   Adelia Torgersen          36.6         17.8            185            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17   Adelia Torgersen          38.7         19.0            195            3450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18   Adelia Torgersen          42.5         20.7            197            4500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19   Adelia Torgersen          34.4         18.4            184            3325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20   Adelia Torgersen          46.0         21.5            194            4200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21   Adelia    Biscoe          37.8         18.3            174            3400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22   Adelia    Biscoe          37.7         18.7            180            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23   Adelia    Biscoe          35.9         19.2            189            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24   Adelia    Biscoe          38.2         18.1            185            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25   Adelia    Biscoe          38.8         17.2            180            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26   Adelia    Biscoe          35.3         18.9            187            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27   Adelia    Biscoe          40.6         18.6            183            3550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28   Adelia    Biscoe          40.5         17.9            187            3200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29   Adelia    Biscoe          37.9         18.6            172            3150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30   Adelia    Biscoe          40.5         18.9            180            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31   Adelia     Dream          39.5         16.7            178            3250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32   Adelia     Dream          37.2         18.1            178            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33   Adelia     Dream          39.5         17.8            188            3300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34   Adelia     Dream          40.9         18.9            184            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35   Adelia     Dream          36.4         17.0            195            3325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36   Adelia     Dream          39.2         21.1            196            4150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37   Adelia     Dream          38.8         20.0            190            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38   Adelia     Dream          42.2         18.5            180            3550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39   Adelia     Dream          37.6         19.3            181            3300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40   Adelia     Dream          39.8         19.1            184            4650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41   Adelia     Dream          36.5         18.0            182            3150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42   Adelia     Dream          40.8         18.4            195            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43   Adelia     Dream          36.0         18.5            186            3100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44   Adelia     Dream          44.1         19.7            196            4400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45   Adelia     Dream          37.0         16.9            185            3000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46   Adelia     Dream          39.6         18.8            190            4600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47   Adelia     Dream          41.1         19.0            182            3425</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48   Adelia     Dream          37.5         18.9            179            2975</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49   Adelia     Dream          36.0         17.9            190            3450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50   Adelia     Dream          42.3         21.2            191            4150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51   Adelia    Biscoe          39.6         17.7            186            3500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52   Adelia    Biscoe          40.1         18.9            188            4300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53   Adelia    Biscoe          35.0         17.9            190            3450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54   Adelia    Biscoe          42.0         19.5            200            4050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55   Adelia    Biscoe          34.5         18.1            187            2900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56   Adelia    Biscoe          41.4         18.6            191            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57   Adelia    Biscoe          39.0         17.5            186            3550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58   Adelia    Biscoe          40.6         18.8            193            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59   Adelia    Biscoe          36.5         16.6            181            2850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60   Adelia    Biscoe          37.6         19.1            194            3750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61   Adelia    Biscoe          35.7         16.9            185            3150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62   Adelia    Biscoe          41.3         21.1            195            4400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63   Adelia    Biscoe          37.6         17.0            185            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64   Adelia    Biscoe          41.1         18.2            192            4050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65   Adelia    Biscoe          36.4         17.1            184            2850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66   Adelia    Biscoe          41.6         18.0            192            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67   Adelia    Biscoe          35.5         16.2            195            3350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68   Adelia    Biscoe          41.1         19.1            188            4100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69   Adelia Torgersen          35.9         16.6            190            3050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70   Adelia Torgersen          41.8         19.4            198            4450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71   Adelia Torgersen          33.5         19.0            190            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72   Adelia Torgersen          39.7         18.4            190            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73   Adelia Torgersen          39.6         17.2            196            3550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74   Adelia Torgersen          45.8         18.9            197            4150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75   Adelia Torgersen          35.5         17.5            190            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76   Adelia Torgersen          42.8         18.5            195            4250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77   Adelia Torgersen          40.9         16.8            191            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78   Adelia Torgersen          37.2         19.4            184            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79   Adelia Torgersen          36.2         16.1            187            3550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80   Adelia Torgersen          42.1         19.1            195            4000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81   Adelia Torgersen          34.6         17.2            189            3200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82   Adelia Torgersen          42.9         17.6            196            4700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83   Adelia Torgersen          36.7         18.8            187            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84   Adelia Torgersen          35.1         19.4            193            4200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85   Adelia     Dream          37.3         17.8            191            3350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86   Adelia     Dream          41.3         20.3            194            3550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87   Adelia     Dream          36.3         19.5            190            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88   Adelia     Dream          36.9         18.6            189            3500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89   Adelia     Dream          38.3         19.2            189            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90   Adelia     Dream          38.9         18.8            190            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91   Adelia     Dream          35.7         18.0            202            3550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92   Adelia     Dream          41.1         18.1            205            4300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93   Adelia     Dream          34.0         17.1            185            3400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94   Adelia     Dream          39.6         18.1            186            4450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95   Adelia     Dream          36.2         17.3            187            3300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96   Adelia     Dream          40.8         18.9            208            4300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97   Adelia     Dream          38.1         18.6            190            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98   Adelia     Dream          40.3         18.5            196            4350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99   Adelia     Dream          33.1         16.1            178            2900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100  Adelia     Dream          43.2         18.5            192            4100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101  Adelia    Biscoe          35.0         17.9            192            3725</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102  Adelia    Biscoe          41.0         20.0            203            4725</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103  Adelia    Biscoe          37.7         16.0            183            3075</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104  Adelia    Biscoe          37.8         20.0            190            4250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105  Adelia    Biscoe          37.9         18.6            193            2925</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106  Adelia    Biscoe          39.7         18.9            184            3550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107  Adelia    Biscoe          38.6         17.2            199            3750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108  Adelia    Biscoe          38.2         20.0            190            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109  Adelia    Biscoe          38.1         17.0            181            3175</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110  Adelia    Biscoe          43.2         19.0            197            4775</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111  Adelia    Biscoe          38.1         16.5            198            3825</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112  Adelia    Biscoe          45.6         20.3            191            4600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113  Adelia    Biscoe          39.7         17.7            193            3200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114  Adelia    Biscoe          42.2         19.5            197            4275</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115  Adelia    Biscoe          39.6         20.7            191            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116  Adelia    Biscoe          42.7         18.3            196            4075</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 117  Adelia Torgersen          38.6         17.0            188            2900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118  Adelia Torgersen          37.3         20.5            199            3775</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 119  Adelia Torgersen          35.7         17.0            189            3350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 120  Adelia Torgersen          41.1         18.6            189            3325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 121  Adelia Torgersen          36.2         17.2            187            3150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 122  Adelia Torgersen          37.7         19.8            198            3500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 123  Adelia Torgersen          40.2         17.0            176            3450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 124  Adelia Torgersen          41.4         18.5            202            3875</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 125  Adelia Torgersen          35.2         15.9            186            3050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 126  Adelia Torgersen          40.6         19.0            199            4000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 127  Adelia Torgersen          38.8         17.6            191            3275</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 128  Adelia Torgersen          41.5         18.3            195            4300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 129  Adelia Torgersen          39.0         17.1            191            3050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 130  Adelia Torgersen          44.1         18.0            210            4000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 131  Adelia Torgersen          38.5         17.9            190            3325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132  Adelia Torgersen          43.1         19.2            197            3500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133  Adelia     Dream          36.8         18.5            193            3500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134  Adelia     Dream          37.5         18.5            199            4475</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135  Adelia     Dream          38.1         17.6            187            3425</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136  Adelia     Dream          41.1         17.5            190            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 137  Adelia     Dream          35.6         17.5            191            3175</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 138  Adelia     Dream          40.2         20.1            200            3975</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 139  Adelia     Dream          37.0         16.5            185            3400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 140  Adelia     Dream          39.7         17.9            193            4250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 141  Adelia     Dream          40.2         17.1            193            3400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142  Adelia     Dream          40.6         17.2            187            3475</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143  Adelia     Dream          32.1         15.5            188            3050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144  Adelia     Dream          40.7         17.0            190            3725</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145  Adelia     Dream          37.3         16.8            192            3000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146  Adelia     Dream          39.0         18.7            185            3650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147  Adelia     Dream          39.2         18.6            190            4250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148  Adelia     Dream          36.6         18.4            184            3475</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 149  Adelia     Dream          36.0         17.8            195            3450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150  Adelia     Dream          37.8         18.1            193            3750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151  Adelia     Dream          36.0         17.1            187            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152  Adelia     Dream          41.5         18.5            201            4000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153   Papúa    Biscoe          46.1         13.2            211            4500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154   Papúa    Biscoe          50.0         16.3            230            5700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 155   Papúa    Biscoe          48.7         14.1            210            4450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 156   Papúa    Biscoe          50.0         15.2            218            5700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 157   Papúa    Biscoe          47.6         14.5            215            5400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 158   Papúa    Biscoe          46.5         13.5            210            4550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 159   Papúa    Biscoe          45.4         14.6            211            4800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 160   Papúa    Biscoe          46.7         15.3            219            5200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 161   Papúa    Biscoe          43.3         13.4            209            4400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162   Papúa    Biscoe          46.8         15.4            215            5150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 163   Papúa    Biscoe          40.9         13.7            214            4650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 164   Papúa    Biscoe          49.0         16.1            216            5550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 165   Papúa    Biscoe          45.5         13.7            214            4650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 166   Papúa    Biscoe          48.4         14.6            213            5850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 167   Papúa    Biscoe          45.8         14.6            210            4200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 168   Papúa    Biscoe          49.3         15.7            217            5850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 169   Papúa    Biscoe          42.0         13.5            210            4150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 170   Papúa    Biscoe          49.2         15.2            221            6300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 171   Papúa    Biscoe          46.2         14.5            209            4800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 172   Papúa    Biscoe          48.7         15.1            222            5350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 173   Papúa    Biscoe          50.2         14.3            218            5700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 174   Papúa    Biscoe          45.1         14.5            215            5000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 175   Papúa    Biscoe          46.5         14.5            213            4400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 176   Papúa    Biscoe          46.3         15.8            215            5050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 177   Papúa    Biscoe          42.9         13.1            215            5000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 178   Papúa    Biscoe          46.1         15.1            215            5100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 179   Papúa    Biscoe          44.5         14.3            216            4100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180   Papúa    Biscoe          47.8         15.0            215            5650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 181   Papúa    Biscoe          48.2         14.3            210            4600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 182   Papúa    Biscoe          50.0         15.3            220            5550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 183   Papúa    Biscoe          47.3         15.3            222            5250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 184   Papúa    Biscoe          42.8         14.2            209            4700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185   Papúa    Biscoe          45.1         14.5            207            5050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 186   Papúa    Biscoe          59.6         17.0            230            6050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 187   Papúa    Biscoe          49.1         14.8            220            5150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 188   Papúa    Biscoe          48.4         16.3            220            5400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 189   Papúa    Biscoe          42.6         13.7            213            4950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 190   Papúa    Biscoe          44.4         17.3            219            5250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 191   Papúa    Biscoe          44.0         13.6            208            4350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 192   Papúa    Biscoe          48.7         15.7            208            5350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 193   Papúa    Biscoe          42.7         13.7            208            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 194   Papúa    Biscoe          49.6         16.0            225            5700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 195   Papúa    Biscoe          45.3         13.7            210            4300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 196   Papúa    Biscoe          49.6         15.0            216            4750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 197   Papúa    Biscoe          50.5         15.9            222            5550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 198   Papúa    Biscoe          43.6         13.9            217            4900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 199   Papúa    Biscoe          45.5         13.9            210            4200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 200   Papúa    Biscoe          50.5         15.9            225            5400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 201   Papúa    Biscoe          44.9         13.3            213            5100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 202   Papúa    Biscoe          45.2         15.8            215            5300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 203   Papúa    Biscoe          46.6         14.2            210            4850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 204   Papúa    Biscoe          48.5         14.1            220            5300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 205   Papúa    Biscoe          45.1         14.4            210            4400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 206   Papúa    Biscoe          50.1         15.0            225            5000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 207   Papúa    Biscoe          46.5         14.4            217            4900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208   Papúa    Biscoe          45.0         15.4            220            5050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209   Papúa    Biscoe          43.8         13.9            208            4300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210   Papúa    Biscoe          45.5         15.0            220            5000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211   Papúa    Biscoe          43.2         14.5            208            4450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212   Papúa    Biscoe          50.4         15.3            224            5550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 213   Papúa    Biscoe          45.3         13.8            208            4200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 214   Papúa    Biscoe          46.2         14.9            221            5300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 215   Papúa    Biscoe          45.7         13.9            214            4400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 216   Papúa    Biscoe          54.3         15.7            231            5650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 217   Papúa    Biscoe          45.8         14.2            219            4700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 218   Papúa    Biscoe          49.8         16.8            230            5700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 219   Papúa    Biscoe          46.2         14.4            214            4650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 220   Papúa    Biscoe          49.5         16.2            229            5800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 221   Papúa    Biscoe          43.5         14.2            220            4700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 222   Papúa    Biscoe          50.7         15.0            223            5550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 223   Papúa    Biscoe          47.7         15.0            216            4750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 224   Papúa    Biscoe          46.4         15.6            221            5000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 225   Papúa    Biscoe          48.2         15.6            221            5100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 226   Papúa    Biscoe          46.5         14.8            217            5200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 227   Papúa    Biscoe          46.4         15.0            216            4700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 228   Papúa    Biscoe          48.6         16.0            230            5800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 229   Papúa    Biscoe          47.5         14.2            209            4600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 230   Papúa    Biscoe          51.1         16.3            220            6000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 231   Papúa    Biscoe          45.2         13.8            215            4750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 232   Papúa    Biscoe          45.2         16.4            223            5950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 233   Papúa    Biscoe          49.1         14.5            212            4625</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 234   Papúa    Biscoe          52.5         15.6            221            5450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 235   Papúa    Biscoe          47.4         14.6            212            4725</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 236   Papúa    Biscoe          50.0         15.9            224            5350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 237   Papúa    Biscoe          44.9         13.8            212            4750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 238   Papúa    Biscoe          50.8         17.3            228            5600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 239   Papúa    Biscoe          43.4         14.4            218            4600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 240   Papúa    Biscoe          51.3         14.2            218            5300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 241   Papúa    Biscoe          47.5         14.0            212            4875</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 242   Papúa    Biscoe          52.1         17.0            230            5550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 243   Papúa    Biscoe          47.5         15.0            218            4950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 244   Papúa    Biscoe          52.2         17.1            228            5400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 245   Papúa    Biscoe          45.5         14.5            212            4750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 246   Papúa    Biscoe          49.5         16.1            224            5650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 247   Papúa    Biscoe          44.5         14.7            214            4850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 248   Papúa    Biscoe          50.8         15.7            226            5200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 249   Papúa    Biscoe          49.4         15.8            216            4925</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 250   Papúa    Biscoe          46.9         14.6            222            4875</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 251   Papúa    Biscoe          48.4         14.4            203            4625</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 252   Papúa    Biscoe          51.1         16.5            225            5250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 253   Papúa    Biscoe          48.5         15.0            219            4850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 254   Papúa    Biscoe          55.9         17.0            228            5600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 255   Papúa    Biscoe          47.2         15.5            215            4975</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 256   Papúa    Biscoe          49.1         15.0            228            5500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 257   Papúa    Biscoe          47.3         13.8            216            4725</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 258   Papúa    Biscoe          46.8         16.1            215            5500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 259   Papúa    Biscoe          41.7         14.7            210            4700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 260   Papúa    Biscoe          53.4         15.8            219            5500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 261   Papúa    Biscoe          43.3         14.0            208            4575</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 262   Papúa    Biscoe          48.1         15.1            209            5500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 263   Papúa    Biscoe          50.5         15.2            216            5000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 264   Papúa    Biscoe          49.8         15.9            229            5950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 265   Papúa    Biscoe          43.5         15.2            213            4650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 266   Papúa    Biscoe          51.5         16.3            230            5500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 267   Papúa    Biscoe          46.2         14.1            217            4375</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 268   Papúa    Biscoe          55.1         16.0            230            5850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 269   Papúa    Biscoe          44.5         15.7            217            4875</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 270   Papúa    Biscoe          48.8         16.2            222            6000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 271   Papúa    Biscoe          47.2         13.7            214            4925</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 272   Papúa    Biscoe            NA           NA             NA              NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 273   Papúa    Biscoe          46.8         14.3            215            4850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 274   Papúa    Biscoe          50.4         15.7            222            5750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 275   Papúa    Biscoe          45.2         14.8            212            5200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 276   Papúa    Biscoe          49.9         16.1            213            5400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 277 Barbijo     Dream          46.5         17.9            192            3500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 278 Barbijo     Dream          50.0         19.5            196            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 279 Barbijo     Dream          51.3         19.2            193            3650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 280 Barbijo     Dream          45.4         18.7            188            3525</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 281 Barbijo     Dream          52.7         19.8            197            3725</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 282 Barbijo     Dream          45.2         17.8            198            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 283 Barbijo     Dream          46.1         18.2            178            3250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 284 Barbijo     Dream          51.3         18.2            197            3750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 285 Barbijo     Dream          46.0         18.9            195            4150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 286 Barbijo     Dream          51.3         19.9            198            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 287 Barbijo     Dream          46.6         17.8            193            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 288 Barbijo     Dream          51.7         20.3            194            3775</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 289 Barbijo     Dream          47.0         17.3            185            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 290 Barbijo     Dream          52.0         18.1            201            4050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 291 Barbijo     Dream          45.9         17.1            190            3575</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 292 Barbijo     Dream          50.5         19.6            201            4050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 293 Barbijo     Dream          50.3         20.0            197            3300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 294 Barbijo     Dream          58.0         17.8            181            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 295 Barbijo     Dream          46.4         18.6            190            3450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 296 Barbijo     Dream          49.2         18.2            195            4400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 297 Barbijo     Dream          42.4         17.3            181            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 298 Barbijo     Dream          48.5         17.5            191            3400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 299 Barbijo     Dream          43.2         16.6            187            2900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 300 Barbijo     Dream          50.6         19.4            193            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 301 Barbijo     Dream          46.7         17.9            195            3300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 302 Barbijo     Dream          52.0         19.0            197            4150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 303 Barbijo     Dream          50.5         18.4            200            3400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 304 Barbijo     Dream          49.5         19.0            200            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 305 Barbijo     Dream          46.4         17.8            191            3700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 306 Barbijo     Dream          52.8         20.0            205            4550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 307 Barbijo     Dream          40.9         16.6            187            3200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 308 Barbijo     Dream          54.2         20.8            201            4300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 309 Barbijo     Dream          42.5         16.7            187            3350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 310 Barbijo     Dream          51.0         18.8            203            4100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 311 Barbijo     Dream          49.7         18.6            195            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 312 Barbijo     Dream          47.5         16.8            199            3900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 313 Barbijo     Dream          47.6         18.3            195            3850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 314 Barbijo     Dream          52.0         20.7            210            4800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 315 Barbijo     Dream          46.9         16.6            192            2700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 316 Barbijo     Dream          53.5         19.9            205            4500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 317 Barbijo     Dream          49.0         19.5            210            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 318 Barbijo     Dream          46.2         17.5            187            3650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 319 Barbijo     Dream          50.9         19.1            196            3550</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 320 Barbijo     Dream          45.5         17.0            196            3500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 321 Barbijo     Dream          50.9         17.9            196            3675</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 322 Barbijo     Dream          50.8         18.5            201            4450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 323 Barbijo     Dream          50.1         17.9            190            3400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 324 Barbijo     Dream          49.0         19.6            212            4300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 325 Barbijo     Dream          51.5         18.7            187            3250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 326 Barbijo     Dream          49.8         17.3            198            3675</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 327 Barbijo     Dream          48.1         16.4            199            3325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 328 Barbijo     Dream          51.4         19.0            201            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 329 Barbijo     Dream          45.7         17.3            193            3600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 330 Barbijo     Dream          50.7         19.7            203            4050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 331 Barbijo     Dream          42.5         17.3            187            3350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 332 Barbijo     Dream          52.2         18.8            197            3450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 333 Barbijo     Dream          45.2         16.6            191            3250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 334 Barbijo     Dream          49.3         19.9            203            4050</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 335 Barbijo     Dream          50.2         18.8            202            3800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 336 Barbijo     Dream          45.6         19.4            194            3525</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 337 Barbijo     Dream          51.9         19.5            206            3950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 338 Barbijo     Dream          46.8         16.5            189            3650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 339 Barbijo     Dream          45.7         17.0            195            3650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 340 Barbijo     Dream          55.8         19.8            207            4000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 341 Barbijo     Dream          43.5         18.1            202            3400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 342 Barbijo     Dream          49.6         18.2            193            3775</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 343 Barbijo     Dream          50.8         19.0            210            4100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 344 Barbijo     Dream          50.2         18.7            198            3775</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       sexo anio</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     &lt;NA&gt; 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8    macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9     &lt;NA&gt; 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10    &lt;NA&gt; 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11    &lt;NA&gt; 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12    &lt;NA&gt; 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48    &lt;NA&gt; 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49  hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50   macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98   macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99  hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 117 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 119 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 120  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 121 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 122  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 123 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 124  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 125 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 126  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 127 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 128  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 129 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 130  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 131 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 137 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 138  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 139 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 140  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 141 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 149 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 155 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 156  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 157  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 158 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 159 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 160  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 161 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 163 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 164  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 165 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 166  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 167 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 168  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 169 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 170  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 171 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 172  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 173  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 174 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 175 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 176  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 177 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 178  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 179   &lt;NA&gt; 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 181 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 182  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 183  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 184 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 186  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 187 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 188  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 189 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 190  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 191 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 192  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 193 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 194  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 195 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 196  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 197  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 198 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 199 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 200  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 201 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 202  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 203 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 204  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 205 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 206  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 207 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 213 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 214  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 215 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 216  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 217 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 218  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 219   &lt;NA&gt; 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 220  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 221 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 222  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 223 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 224  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 225  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 226 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 227 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 228  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 229 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 230  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 231 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 232  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 233 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 234  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 235 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 236  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 237 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 238  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 239 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 240  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 241 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 242  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 243 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 244  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 245 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 246  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 247 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 248  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 249  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 250 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 251 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 252  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 253 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 254  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 255 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 256  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 257   &lt;NA&gt; 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 258  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 259 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 260  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 261 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 262  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 263 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 264  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 265 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 266  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 267 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 268  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 269   &lt;NA&gt; 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 270  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 271 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 272   &lt;NA&gt; 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 273 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 274  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 275 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 276  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 277 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 278  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 279  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 280 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 281  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 282 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 283 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 284  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 285 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 286  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 287 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 288  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 289 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 290  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 291 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 292  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 293  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 294 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 295 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 296  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 297 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 298  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 299 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 300  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 301 hembra 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 302  macho 2007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 303 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 304  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 305 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 306  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 307 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 308  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 309 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 310  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 311  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 312 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 313 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 314  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 315 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 316  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 317  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 318 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 319  macho 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 320 hembra 2008</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 321 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 322  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 323 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 324  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 325  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 326 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 327 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 328  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 329 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 330  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 331 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 332  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 333 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 334  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 335  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 336 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 337  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 338 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 339 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 340  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 341 hembra 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 342  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 343  macho 2009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 344 hembra 2009</span>
+<span class="r-in"><span><span class="fu">grafico_relacion</span><span class="op">(</span><span class="va">pinguinos</span>, <span class="st">"largo_pico_mm"</span>, <span class="st">"largo_aleta_mm"</span>, <span class="st">"Relacion entre el pico y la aleta"</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>All aesthetics have length 1, but the data has 344 rows.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please consider using `annotate()` or provide this layer with data containing</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>   a single row.</span>
+<span class="r-plt img"><img src="grafico_relacion-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
