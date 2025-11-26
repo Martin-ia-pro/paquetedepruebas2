@@ -4,16 +4,16 @@
 \alias{grafico_relacion}
 \title{Grafico para determinar Relacion}
 \usage{
-grafico_relacion(datos, x, y, titulo)
+grafico_relacion(datos, ejex, ejey, titulo)
 }
 \arguments{
 \item{datos}{Dataset con la informacion del grafico que se quiere crear}
 
+\item{titulo}{titulo del grafico de dispercion}
+
 \item{x}{variable que ira en el eje x}
 
 \item{y}{variable que ira en el eje y}
-
-\item{titulo}{titulo del grafico de dispercion}
 }
 \value{
 Devuelve un grafico de dispercion en donde se podra ver si hay relacion entre las variables
@@ -23,6 +23,6 @@ La funcion grafico_relacion sirve para crear un grafico de dispercion en donde s
 si hay relacion entre dos variables comtinuas
 }
 \examples{
-grafico_relacion(pinguinos, alto_pico_mm, largo_aleta_mm)
+grafico_relacion(pinguinos, alto_pico_mm, largo_aleta_mm, "Relacion entre el pico y la aleta")
 
 }

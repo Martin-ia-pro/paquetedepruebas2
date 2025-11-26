@@ -9,19 +9,13 @@
 #' @param titulo titulo del grafico de dispercion
 #'
 #' @examples
-#' grafico_relacion(pinguinos, alto_pico_mm, largo_aleta_mm, "Relacion entre el pico y la aleta")
+#' grafico_relacion(pinguinos, largo_pico_mm, largo_aleta_mm, "Relacion entre el pico y la aleta")
 #'
 #' @returns Devuelve un grafico de dispercion en donde se podra ver si hay relacion entre las variables
 #' @export
 grafico_relacion <- function(datos, ejex, ejey, titulo) {
-  if(!is.numeric(ejex) | !is.numeric(ejey)) {
-    cli::cli_inform("i" = "Los parametros x e y deben ser de tipo numerico")
-  }else{ if(!is.character(titulo)){
-    cli::cli_inform("i" = "El parametro titulo debe ser de tipo caracter")
-  } else {
     ggplot2::ggplot(data = datos)+
       ggplot2::aes(x = ejex, y = ejey)+
       ggplot2::labs(title = titulo)+
       ggplot2::geom_point()
-  }}
-}
+  }

@@ -20,6 +20,6 @@ La funcion resumen_numerico sirve para obtener una tabla o tibble con el maximo,
 desvio estandar y mediana de una columna del archvo que se le pasa como argumento
 }
 \examples{
-resumen_nuemrico(datos1, Cantidad_de_aviones)
+resumen_numerico(pinguinos, alto_pico_mm)
 
 }
