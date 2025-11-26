@@ -1,3 +1,18 @@
+#' Grafico para determinar Relacion
+#'
+#' La funcion grafico_relacion sirve para crear un grafico de dispercion en donde se pueda ver
+#' si hay relacion entre dos variables comtinuas
+#'
+#' @param datos Dataset con la informacion del grafico que se quiere crear
+#' @param x variable que ira en el eje x
+#' @param y variable que ira en el eje y
+#' @param titulo titulo del grafico de dispercion
+#'
+#' @examples
+#' grafico_relacion(datos1, cantidad_perros, temperatura_sol)
+#'
+#' @returns Devuelve un grafico de dispercion en donde se podra ver si hay relacion entre las variables
+#' @export
 grafico_relacion <- function(datos, x, y, titulo) {
   if(!is.numeric(x) | !is.numeric(y)) {
     cli::cli_inform("i" = "Los parametros x e y deben ser de tipo numerico")
