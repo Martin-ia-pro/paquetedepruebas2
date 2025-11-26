@@ -5,7 +5,7 @@ Authors@R:
     person("Juan", "Martín", , "mecomolosmocos@hotnomails.com", role = c("aut", "cre"))
 Description: El paquete sirve para analizar datos de un archivo, contiene dos funciones: 
     resumen_numerico, que te devuelve el maximo,minimo,desvio standar,etc; 
-    y frecuencia_palabra que cunta la frecuencia de las palabras en un archivo.
+    y grafico_relacion que realiza un grafico de dispersion con dos variables continuas.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
