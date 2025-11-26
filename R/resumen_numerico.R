@@ -7,7 +7,7 @@
 #' @param columna Columna de de datos de tipo numerico de la cual se quiere obtenr un resumen numerico
 #'
 #' @examples
-#' resumen_numerico(pinguinos, alto_pico_mm)
+#' resumen_numerico(pinguinos, "alto_pico_mm")
 #'
 #' @returns Devuelve un tibble o tabla con el maximo, minimo, promedio,
 #' desvio estandar y mediana de una columna del archvo que se le pasa como argumento

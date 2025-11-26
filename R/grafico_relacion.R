@@ -9,13 +9,14 @@
 #' @param titulo titulo del grafico de dispercion
 #'
 #' @examples
-#' grafico_relacion(pinguinos, largo_pico_mm, largo_aleta_mm, "Relacion entre el pico y la aleta")
+#' pinguinos
+#' grafico_relacion(pinguinos, "largo_pico_mm", "largo_aleta_mm", "Relacion entre el pico y la aleta")
 #'
 #' @returns Devuelve un grafico de dispercion en donde se podra ver si hay relacion entre las variables
 #' @export
-grafico_relacion <- function(datos, ejex, ejey, titulo) {
+grafico_relacion <- function(datos, x, y, titulo) {
     ggplot2::ggplot(data = datos)+
-      ggplot2::aes(x = ejex, y = ejey)+
+      ggplot2::aes(x = x, y = y)+
       ggplot2::labs(title = titulo)+
       ggplot2::geom_point()
   }
