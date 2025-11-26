@@ -1,2 +1,9 @@
 ^paquetedepruebas2\.Rproj$
 ^\.Rproj\.user$
+^doc$
+^Meta$
+^README\.Rmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
